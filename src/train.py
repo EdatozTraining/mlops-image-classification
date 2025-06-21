@@ -17,9 +17,9 @@ def train():
     ])
     model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
     datagen = ImageDataGenerator(rescale=1./255, validation_split=0.2)
-    train_data = datagen.flow_from_directory('./data/dataset', target_size=(224,224),
+    train_data = datagen.flow_from_directory('./data/dataset/train', target_size=(224,224),
                                              batch_size=32, subset='training')
-    val_data = datagen.flow_from_directory('./data/dataset', target_size=(224,224),
+    val_data = datagen.flow_from_directory('./data/dataset/validation', target_size=(224,224),
                                            batch_size=32, subset='validation')
     model.fit(train_data, epochs=3, validation_data=val_data)
     model.save('models/model.h5')
