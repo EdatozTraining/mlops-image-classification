@@ -24,5 +24,6 @@ def train():
     model.fit(train_data, epochs=3, validation_data=val_data)
     model.save('models/model.h5')
 
+    a = 100
 if __name__ == "__main__":
     train()
